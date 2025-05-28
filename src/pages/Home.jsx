@@ -1,33 +1,60 @@
 import React from "react";
-import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import { UserPlus, LogIn } from "lucide-react";
 
 function Home() {
-	const navigate = useNavigate();
-	return (
-		<div className="min-h-full bg-[#F7F8F9] shadow-lg flex flex-col items-center justify-end p-6 ">
-			<div className="mb-6">
-				<h1 className="text-3xl font-bold text-gray-900 mb-2">
-					Welcome to PopX
-				</h1>
-				<p className="text-gray-500 text-sm mb-6">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit
-				</p>
-				<div className="space-y-3">
-					<Button
-						label="Create Account"
-						className="text-white bg-[#6C25FF] cursor-pointer"
-						onClick={() => navigate("/signup")}
-					/>
-					<Button
-						label="Already Registered? Login"
-						className="text-[#504E64] bg-[#CEBAFB] cursor-pointer"
-						onClick={() => navigate("/login")}
-					/>
-				</div>
-			</div>
-		</div>
-	);
+  const navigate = useNavigate();
+
+  return (
+    <div className="min-h-screen bg-[#F2F2F2] flex items-center justify-center">
+      {/* Android-style frame */}
+      <div className="relative w-[360px] h-[720px] bg-bg-gradient-to-br from-[#EDEDED] to-[#D7D7F9] rounded-[40px]   shadow-2xl flex items-center justify-center">
+       
+        <div className="w-full h-full bg-gradient-to-br from-[#EDEDED] to-[#D7D7F9] rounded-[26px] overflow-hidden p-5">
+          <div className="w-full h-full flex flex-col justify-center items-center animate-fade-in-down transition-all duration-500">
+            <div className="w-full max-w-sm bg-white shadow-xl rounded-[32px] p-6 flex flex-col justify-center space-y-6">
+              
+              
+              <div className="text-center">
+                <h1 className="text-3xl font-extrabold text-[#1F1F1F] tracking-tight">
+                  Let’s Get You Started
+                </h1>
+              </div>
+
+              
+              <div className="bg-gradient-to-br from-[#EDEDED] to-[#D7D7F9] p-6 rounded-2xl shadow-inner">
+                <div className="text-center">
+                  <p className="text-lg text-gray-700 font-semibold">Welcome Back</p>
+                  <p className="text-sm font-medium text-gray-500">
+                    PopX
+                  </p>
+                </div>
+              </div>
+
+           
+              <div className="bg-[#F7F8F9] p-6 rounded-2xl shadow-inner space-y-4">
+                <button
+                  onClick={() => navigate("/signup")}
+                  className="w-full py-4 rounded-full bg-[#6C25FF] text-white text-base font-semibold flex items-center justify-center gap-2 transition duration-300 shadow-md hover:bg-[#5420cc] focus:outline-none focus:ring-4 focus:ring-[#cbb8ff]"
+                >
+                  <UserPlus size={20} />
+                  Create Account
+                </button>
+
+                <button
+                  onClick={() => navigate("/login")}
+                  className="w-full py-4 rounded-full bg-white text-[#6C25FF] border border-[#6C25FF] text-base font-semibold flex items-center justify-center gap-2 transition duration-300 shadow-md hover:bg-[#f0eaff] focus:outline-none focus:ring-4 focus:ring-[#e2d4ff]"
+                >
+                  <LogIn size={20} />
+                  Already Registered? Login
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Home;
